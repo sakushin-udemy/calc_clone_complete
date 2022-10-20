@@ -23,10 +23,10 @@ class Button extends StatelessWidget {
           child: Padding(
             padding: text == "0"
                 ? const EdgeInsets.only(
-                    left: 20, top: 20, right: 120, bottom: 20)
+                    left: 0, top: 20, right: 120, bottom: 20)
                 : text.length == 1
-                    ? const EdgeInsets.all(22)
-                    : const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
+                    ? const EdgeInsets.all(0)
+                    : const EdgeInsets.symmetric(horizontal: 0, vertical: 22),
             child: mapIcon.containsKey(text)
                 ? Icon(
                     mapIcon[text],
@@ -41,8 +41,8 @@ class Button extends StatelessWidget {
             onPressed!(text);
           },
           style: ElevatedButton.styleFrom(
-            primary: colorButton,
-            onPrimary: colorText,
+            foregroundColor: colorText,
+            backgroundColor: colorButton,
             shape: text == "0" ? const StadiumBorder() : const CircleBorder(),
           ),
         ));

@@ -1,4 +1,3 @@
-import 'package:calc_clone/widgets/button.dart';
 import 'package:calc_clone/widgets/keypad.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,13 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Logic _logic = Logic();
 
   Widget build(BuildContext context) {
-    Function onPress = (String text) {
-      _logic.input(text);
-      setState(() {
-        txtResult = _logic.text;
-      });
-    };
-
     return Scaffold(
       backgroundColor: colorMain,
       body: Container(
@@ -68,10 +60,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
-            KeyPad(onPress as void Function(String)?),
+            KeyPad(onPress),
           ],
         ),
       ),
     );
+  }
+
+  void onPress(String text) {
+    _logic.input(text);
+    setState(() {
+      txtResult = _logic.text;
+    });
   }
 } // end of state class
